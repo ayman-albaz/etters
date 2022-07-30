@@ -6,7 +6,7 @@ Etters, a pragmatic Nim library combining move semantics and object oriented enc
 ## Installation
 `nimble install https://github.com/ayman-albaz/etters`
 
-I will add this to nimble there is a demand for it.
+I will add this to nimble if there is a demand for it.
 
 ## Quick Start
 ```Nim
