@@ -248,7 +248,7 @@ genEtters(DataObj)
   - Basically `ref T`, `object of T`, `ref object of T` are supported
   - To me this is less than ideal. I would prefer if the library would have more granular levels of control.
   - Ideally, an `{.inheritEtters.}` pragma should be used to generate etters implementations instead of generating them at the root. I have tried to approach this problem, but it is too dificult for now. PRs appreciated here.
-  - The supporte methods of inheritance are the ones the average nim user will most likely use.
+  - The supported methods of inheritance are the ones the average nim user will most likely use.
 
 ## TODO
 - Add `{.inheritEtters.}` to add more granularity and control for etters inheritance.
