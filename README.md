@@ -104,7 +104,7 @@ proc mfield1*(self: Data): var seq[float] =
 ```
 
 ### `{.mgetter.}`
-Generates a proc that returns a mutable view to a field via `lent T`.
+Generates a proc that returns a mutable view to a field via `var T`.
 E.g. 
 ```Nim
 proc mfield1*(self: var DataObj): var seq[float] =
@@ -137,7 +137,7 @@ proc `field1=`*(self: Data; field1: sink seq[float]) =
 
 ### `{.getterCustom.}`, `{.mgetterCustom.}`, `{.setterCustom.}` are placeholder pragmas.
 They do absolutely nothing and should be used when you want to create your own custom getter/setter procs,
-but convery within the object definition that you are using some sort of getter/setter procs.
+but convey within the object definition that you are using some sort of getter/setter procs.
 
 
 ### `genEtters` 
@@ -212,7 +212,7 @@ With the power of Nim's method call syntax, we can call on those generated procs
 ## Best practices
 - Avoid making fields with etters pragmas public. If you do you will not be able to use the convinient method call syntax and will have to call the generated procs the verbose way.
 - Compile your code using `nim --hint[Performance]:on --mm:orc c -r ...`. Compiling with `--hint[Performance]:on` will allow the compiler to hint at you when `sink` move semantics aren't working as intended.
-- When using the `genEtters` command, it is best to use it at the bottom of the module to avoid confusion with direct field access. When used in the same module `genEtters` will not generate naming clashes with accessors.
+- When using the `genEtters` command for the first time, it is best to use it at the bottom of the module to avoid confusion with direct field access. Do not worry though as when used in the same module `genEtters` will not generate naming clashes with accessors. Accessors take precedent over procs in nim.
   - When `genEtters` is used, access from the same module can be done by:
     - Getters: `field1(self)` as opposed to `self.field`
     - Mgetters: `mfield(self)` as opposed to `self.mfield`
